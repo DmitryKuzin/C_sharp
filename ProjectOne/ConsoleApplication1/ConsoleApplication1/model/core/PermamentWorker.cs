@@ -19,22 +19,6 @@ namespace ConsoleApplication1.model
         public override void setSalary(ValueType salary)
         {
             Salary = (double)salary;
-           // if (sal < 0)
-            //    throw new SalaryException();
-            
-        }
-        public override void changeSalary(ValueType salaryValue)
-        {
-            Salary = (double)salaryValue;
-            //if (Salary < 0)
-              //  throw new SalaryException();
-        }
-
-        public override void resetName(string name, string lastName, int id)
-        {
-            Name = name;
-            LastName = lastName;
-            ID = id;
         }
     }
 }

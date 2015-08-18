@@ -13,7 +13,11 @@ namespace ConsoleApplication1.core
         public double Salary=0;
         public int ID=0;
         abstract public void setSalary(ValueType a);
-        abstract public void changeSalary(ValueType a);
-        abstract public void resetName(string name, string lastName,int id);
+        public void resetName(string name, string lastName,int id)
+        {
+            Name = name;
+            LastName = lastName;
+            ID = id;
+        }
     }
 }

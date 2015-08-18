@@ -29,10 +29,9 @@ namespace ConsoleApplication1.view.console
             
             Console.WriteLine("." + format(9, id) + "|" + format(15, name) +"|"+ format(15, lastName) + "|" + format(10, (int)salary) + "rub."); 
             
-            
         }
         private string format(int indent,int value)
-        {
+         {
             
             string b=value.ToString();
             for(int i=0;i< indent-valueLength(value); i++)

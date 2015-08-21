@@ -13,20 +13,24 @@ namespace ConsoleApplication1
 {//моя группа алина лев азат
     class Program
     {
-        static void Main(string[] args)
+       static void Main(string[] args)
         {
-           
-            ConsoleView cv = new ConsoleView();
             List<Worker> list = new List<Worker>();
-            Worker a = new PermamentWorker("John", "Garret", 1, 22300);
-            Worker b = new TemporaryWorker("Pete", "Jordan", 2, 550);
-            Worker c = new PermamentWorker("Dima", "Kuzin", 3, 999999);
-            Worker d = new TemporaryWorker();
-            list.Add(a);
-            list.Add(b);
-            list.Add(c);
-            list.Add(d);
-            cv.PrintTable(list);
+            ConsoleView cv = new ConsoleView();
+            ConsoleDialogHandler dh = new ConsoleDialogHandler(list);
+            FileLogger fl = new FileLogger("log.txt");
+            cv.printNameOfProgram();
+            cv.GetHelp();
+            while (!dh.isExit)
+            {
+                try {
+                    cv.PrintTable(dh.Handle(cv.Hear()));
+                }catch(Exception e)
+                {
+                    fl.LogMessage(e.Message);
+                }
+            }
+            cv.Stop();
         }
     }
 }

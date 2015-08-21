@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ConsoleApplication1.core
 {
+    [Serializable]
     abstract class Worker
     {
         public string Name="Agent";
@@ -19,5 +17,6 @@ namespace ConsoleApplication1.core
             LastName = lastName;
             ID = id;
         }
+        
     }
 }

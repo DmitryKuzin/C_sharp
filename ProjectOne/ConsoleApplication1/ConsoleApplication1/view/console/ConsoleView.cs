@@ -9,6 +9,27 @@ namespace ConsoleApplication1.view.console
 {
     class ConsoleView
     {
+        public void printNameOfProgram()
+        {
+            for(int i = 0; i < 5; i++)
+            {
+                Print("");
+            }
+            Print("                        Console App ");
+            Print("");
+        }
+        public void Stop()
+        {
+            Console.ReadLine();
+        }
+        public string Hear()
+        {
+            return Console.ReadLine();
+        }
+        public void Print(string message)
+        {
+            Console.WriteLine(message);
+        }
         private string line = ".....................................................................";
         private string head = ".id       |name           |lastname       |salary                   .";
         public void PrintTable(List<Worker> list)
@@ -16,13 +37,10 @@ namespace ConsoleApplication1.view.console
             Console.WriteLine(line);
             Console.WriteLine(head);
             Console.WriteLine(line);
-            for(int i = 0; i < list.Capacity; i++)
+            foreach(var w in list)
             {
-                Worker w = list.First();
-                list.Remove(list.First());
                 PrintOnePersonTable(w.ID, w.Name, w.LastName, w.Salary);
             }
-            Console.ReadLine();
         }
         public void PrintOnePersonTable(int id, string name, string lastName, double salary)
         {
@@ -63,6 +81,18 @@ namespace ConsoleApplication1.view.console
             }
             return count;
         }
-            
+        public void GetHelp()
+        {
+            Print("To get Help write -help");
+            Print("To show table write -getTable ");
+           // Print("To change one worker properties write -change");
+            Print("To create new workers write -in");
+            //Print("To delete one worker write -out");
+            Print("To delete all workers write -collapse");
+            Print("To get top write -getTop");
+            Print("To save table in file write -save");
+            Print("To read from file write -read");
+            Print("To change properties of program write -changeProperties");
+        }
     }
 }

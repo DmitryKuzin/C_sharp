@@ -44,16 +44,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="model\exceptions\SalaryException.cs" />
+    <Compile Include="model\logger\ConsoleLogger.cs" />
+    <Compile Include="model\logger\ConsoleLoggerWithTime.cs" />
+    <Compile Include="model\logger\FileLogger.cs" />
+    <Compile Include="model\logger\Log.cs" />
+    <Compile Include="model\logger\Logger.cs" />
+    <Compile Include="model\Configer.cs" />
+    <Compile Include="model\Sorter\NameComparer.cs" />
+    <Compile Include="model\Sorter\SalaryComparer.cs" />
+    <Compile Include="model\exceptions\ConfigException.cs" />
     <Compile Include="model\core\PermamentWorker.cs" />
     <Compile Include="model\core\TemporaryWorker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="model\core\Worker.cs" />
+    <Compile Include="model\Serializer.cs" />
+    <Compile Include="model\Sorter\Sort.cs" />
     <Compile Include="view\console\ConsoleView.cs" />
+    <Compile Include="view\console\ConsoleDialogHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

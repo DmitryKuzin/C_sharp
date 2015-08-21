@@ -1,13 +1,10 @@
 ﻿using ConsoleApplication1.core;
 using ConsoleApplication1.model.exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApplication1.model
 {
+    [Serializable]
     class PermamentWorker:Worker
     {
         public PermamentWorker() { }

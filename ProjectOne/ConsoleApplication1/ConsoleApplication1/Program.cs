@@ -13,12 +13,13 @@ namespace ConsoleApplication1
 {//моя группа алина лев азат
     class Program
     {
-       static void Main(string[] args)
+       static void Main(string[] args)//можно добавить два id одинаковых
         {
             List<Worker> list = new List<Worker>();
             ConsoleView cv = new ConsoleView();
             ConsoleDialogHandler dh = new ConsoleDialogHandler(list);
             FileLogger fl = new FileLogger("log.txt");
+            ConsoleLoggerWithTime clt = new ConsoleLoggerWithTime();
             cv.printNameOfProgram();
             cv.GetHelp();
             while (!dh.isExit)
@@ -28,6 +29,7 @@ namespace ConsoleApplication1
                 }catch(Exception e)
                 {
                     fl.LogMessage(e.Message);
+                    clt.LogMessage(e.Message);
                 }
             }
             cv.Stop();

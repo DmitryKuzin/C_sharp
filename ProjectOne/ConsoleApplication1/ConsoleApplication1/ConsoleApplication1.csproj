@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="model\exceptions\IDException.cs" />
     <Compile Include="model\logger\ConsoleLogger.cs" />
     <Compile Include="model\logger\ConsoleLoggerWithTime.cs" />
     <Compile Include="model\logger\FileLogger.cs" />

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleApplication1.model;
+using System.Collections;
+using ConsoleApplication1.model.exceptions;
 
 namespace ConsoleApplication1.view.console
 {
@@ -13,6 +15,8 @@ namespace ConsoleApplication1.view.console
         
         public bool isExit = false;
         public List<Worker> list = null;
+        private List<Worker> buf = new List<Worker>();
+        ArrayList IdList = new ArrayList();
         public ConsoleDialogHandler(List<Worker> workers)
         {
             list = workers;
@@ -38,6 +42,14 @@ namespace ConsoleApplication1.view.console
                 string lastName = Hear();
                 Print("id:");
                 int id = Int32.Parse(Hear());
+                if (!IdList.Contains(id))
+                {
+                    IdList.Add(id);
+                }
+                else
+                {
+                    throw new IDException();
+                }
                 double sal = 0;
                 if (type.ToLower().Substring(0, 1).Equals("t"))
                 {
@@ -50,7 +62,7 @@ namespace ConsoleApplication1.view.console
                     sal = Double.Parse(Hear());
                 }
 
-                if (type.ToLower().Substring(0, 3).Equals("temp"))
+                if (type.ToLower().Substring(0, 1).Equals("t"))
                 {
                     list.Add(new TemporaryWorker(name, lastName, id, sal));
                 }
@@ -112,16 +124,16 @@ namespace ConsoleApplication1.view.console
                 string n = Hear().ToLower();
                 if (n.Substring(0, 1).Equals("w"))
                 {
-                    Serializer.writing(list);
-                    list = Sort.theWorst(list);
+                    buf=list;
+                    buf= Sort.theWorst(list);
 
                 }
                 else
                 {
-                    Serializer.writing(list);
-                    list = Sort.theBest(list);
+                    buf = list;
+                    buf = Sort.theBest(list);
                 }
-                return list;
+                return buf;
             }
             else if (inquiry.Equals("-changeProperties"))
             {
